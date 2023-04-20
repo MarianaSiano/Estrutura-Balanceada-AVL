@@ -9,6 +9,10 @@ class AVL {
 private:
     NoAVL *raiz; //ponteiro para a raiz da árvore
 
+public:
+    AVL(NoAVL* raiz); //construtor
+    ~AVL(); //destrutor
+    
     int altura(NoAVL *no); //retorna a altura do nó
     int fatorBalanceamento(NoAVL *no); //retorna o fator de balanceamento do nó
 
