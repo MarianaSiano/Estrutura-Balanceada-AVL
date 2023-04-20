@@ -13,7 +13,7 @@ private:
 
 public:
     NoAVL(int chave); // construtor
-    ~NoAVL();                                  // destrutor
+    ~NoAVL(); // destrutor
 
     int getChave();  // retorna a chave do nó
     int getAltura(); // retorna a altura do nó

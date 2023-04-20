@@ -5,13 +5,13 @@
 
 using namespace std;
 
-class AVL {
+class ArvoreAVL {
 private:
     NoAVL *raiz; //ponteiro para a raiz da árvore
 
 public:
-    AVL(); //construtor
-    ~AVL(); //destrutor
+    ArvoreAVL(); //construtor
+    ~ArvoreAVL(); //destrutor
     
     int altura(NoAVL *no); //retorna a altura do nó
     int fatorBalanceamento(NoAVL *no); //retorna o fator de balanceamento do nó

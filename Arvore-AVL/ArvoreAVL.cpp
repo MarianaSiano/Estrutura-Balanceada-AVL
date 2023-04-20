@@ -2,22 +2,22 @@
 #include <iostream>
 
 #include "NoAVL.h"
-#include "AVL.h"
+#include "arvoreAVL.h"
 
 using namespace std;
 
 //Construtor
-AVL::AVL() {
+ArvoreAVL::ArvoreAVL() {
     raiz = NULL; //Inicializa a raiz como NULL
 }
     
 //Destrutor
-AVL::~AVL() {
+ArvoreAVL::~ArvoreAVL() {
     limpar(raiz); //Limpa a arvore
 }
 
 //Altura da arvore
-int AVL::altura(NoAVL *no) {
+int ArvoreAVL::altura(NoAVL *no) {
     if (no == NULL) //Se o no for NULL
     {
         return -1; //Retorna -1
@@ -30,12 +30,12 @@ int AVL::altura(NoAVL *no) {
 }
 
 //Fator de balanceamento
-int AVL::fatorBalanceamento(NoAVL *no) {
+int ArvoreAVL::fatorBalanceamento(NoAVL *no) {
     return fatorBalanceamento(no->getEsq()) - fatorBalanceamento(no->getDir()); //Retorna a altura da subarvore esquerda menos a altura da subarvore direita
 }
 
 //Rotação simples a esquerda
-NoAVL *AVL::rotacaoEsquerda(NoAVL *no) {
+NoAVL *ArvoreAVL::rotacaoEsquerda(NoAVL *no) {
     NoAVL *noDir = no->getDir(); //No direita recebe o no direito do no
     NoAVL *noDirEsq = noDir->getEsq(); //No direita esquerda recebe o no direito esquerdo do no direito
 
@@ -49,7 +49,7 @@ NoAVL *AVL::rotacaoEsquerda(NoAVL *no) {
 }
 
 //Rotação simples a direita
-NoAVL *AVL::rotacaoDireita(NoAVL *no) {
+NoAVL *ArvoreAVL::rotacaoDireita(NoAVL *no) {
     NoAVL *noEsq = no->getEsq(); //No esquerda recebe o no esquerdo do no
     NoAVL *noEsqDir = noEsq->getDir(); //No esquerda direita recebe o no esquerdo direito do no esquerdo
 
@@ -63,19 +63,19 @@ NoAVL *AVL::rotacaoDireita(NoAVL *no) {
 }
 
 //Rotação dupla a esquerda
-NoAVL *AVL::rotacaoEsquerdaDireita(NoAVL *no) {
+NoAVL *ArvoreAVL::rotacaoEsquerdaDireita(NoAVL *no) {
     no->setEsq(rotacaoEsquerda(no->getEsq())); //No esquerda recebe a rotação a esquerda do no esquerda
     return rotacaoDireita(no); //Retorna a rotação a direita do no
 }
 
 //Rotação dupla a direita
-NoAVL *AVL::rotacaoDireitaEsquerda(NoAVL *no) {
+NoAVL *ArvoreAVL::rotacaoDireitaEsquerda(NoAVL *no) {
     no->setDir(rotacaoDireita(no->getDir())); //No direita recebe a rotação a direita do no direita
     return rotacaoEsquerda(no); //Retorna a rotação a esquerda do no
 }
 
 //Inserir
-NoAVL *AVL::inserir(NoAVL *no, int chave) {
+NoAVL *ArvoreAVL::inserir(NoAVL *no, int chave) {
     //Se o no for NULL
     if (no == NULL) {
         return new NoAVL(chave); //Retorna um novo no
@@ -124,7 +124,7 @@ NoAVL *AVL::inserir(NoAVL *no, int chave) {
 }
 
 //Remover
-NoAVL *AVL::remover(NoAVL *no, int chave)
+NoAVL *ArvoreAVL::remover(NoAVL *no, int chave)
 {
     //Se o no for NULL
     if (no == NULL) {
@@ -204,7 +204,7 @@ NoAVL *AVL::remover(NoAVL *no, int chave)
 }
 
 //Rotacionar para a direita
-NoAVL *AVL::minimo(NoAVL *no) {
+NoAVL *ArvoreAVL::minimo(NoAVL *no) {
     NoAVL *atual = no; //No atual recebe o no
 
     //Enquanto o no atual tiver filho esquerdo
@@ -216,7 +216,7 @@ NoAVL *AVL::minimo(NoAVL *no) {
 }
 
 //Montar em pre-ordem
-void AVL::preOrdem(NoAVL *no) {
+void ArvoreAVL::preOrdem(NoAVL *no) {
     if (no != NULL) {
         cout << no->getChave() << " ";
         preOrdem(no->getEsq());
@@ -225,7 +225,7 @@ void AVL::preOrdem(NoAVL *no) {
 }
 
 //Montar em ordem
-void AVL::emOrdem(NoAVL *no) {
+void ArvoreAVL::emOrdem(NoAVL *no) {
     if (no != NULL) {
         emOrdem(no->getEsq()); //Montar em ordem a subarvore esquerda
         cout << no->getChave() << " "; //Imprimir a chave do no
@@ -234,7 +234,7 @@ void AVL::emOrdem(NoAVL *no) {
 }
 
 //Montar em pós-ordem
-void AVL::posOrdem(NoAVL *no) {
+void ArvoreAVL::posOrdem(NoAVL *no) {
     if (no != NULL) {
         posOrdem(no->getEsq()); //Montar em pós-ordem a subarvore esquerda
         posOrdem(no->getDir()); //Montar em pós-ordem a subarvore direita
@@ -243,7 +243,7 @@ void AVL::posOrdem(NoAVL *no) {
 }
 
 //Limpar
-void AVL::limpar(NoAVL *no) {
+void ArvoreAVL::limpar(NoAVL *no) {
     if (no != NULL) {
         limpar(no->getEsq()); //Limpar a subarvore esquerda
         limpar(no->getDir()); //Limpar a subarvore direita
@@ -252,7 +252,7 @@ void AVL::limpar(NoAVL *no) {
 }
 
 //Imprimir
-void AVL::imprimirAVL() {
+void ArvoreAVL::imprimirAVL() {
     cout << "Pre-ordem: ";
     preOrdem(raiz);
     cout << endl;
