@@ -24,9 +24,9 @@ public:
     NoAVL *remover(NoAVL *no, int chave); //remove um nó da árvore
     NoAVL *minimo(NoAVL *no); //retorna o nó com a menor chave da árvore
 
-    void preOrdem(NoAVL *no); //imprime a árvore em pré-ordem
-    void emOrdem(NoAVL *no); //imprime a árvore em ordem
-    void posOrdem(NoAVL *no); //imprime a árvore em pós-ordem
+    void percorrerPreOrdem(NoAVL *no); //imprime a árvore em pré-ordem
+    void percorrerInOrdem(NoAVL *no); //imprime a árvore em ordem
+    void percorrerPosOrdem(NoAVL *no); //imprime a árvore em pós-ordem
     void limpar(NoAVL *no); //limpa a árvore
     void imprimirAVL(); //imprime a árvore
 };

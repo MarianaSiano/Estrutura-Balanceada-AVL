@@ -1,3 +1,6 @@
+#ifndef NOAVL_H
+#define NOAVL_H
+
 #include <bits/stdc++.h>
 #include <iostream>
 
@@ -26,3 +29,5 @@ public:
     void setEsq(NoAVL *esq);    // altera o filho esquerdo
     void setDir(NoAVL *dir);    // altera o filho direito
 };
+
+#endif // NOAVL_H

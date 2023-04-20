@@ -77,8 +77,8 @@ NoAVL *ArvoreAVL::rotacaoDireitaEsquerda(NoAVL *no) {
 //Inserir
 NoAVL *ArvoreAVL::inserir(NoAVL *no, int chave) {
     //Se o no for NULL
-    if (no == NULL) {
-        return new NoAVL(chave); //Retorna um novo no
+    if (this->raiz == NULL) {
+        return no; //Retorna um novo no
     }
 
     //Se a chave for menor que a chave do no
@@ -127,7 +127,7 @@ NoAVL *ArvoreAVL::inserir(NoAVL *no, int chave) {
 NoAVL *ArvoreAVL::remover(NoAVL *no, int chave)
 {
     //Se o no for NULL
-    if (no == NULL) {
+    if (this->raiz == NULL) {
         return no;
     }
 
@@ -215,53 +215,55 @@ NoAVL *ArvoreAVL::minimo(NoAVL *no) {
     return atual;
 }
 
-//Montar em pre-ordem
-void ArvoreAVL::preOrdem(NoAVL *no) {
-    if (no != NULL) {
-        cout << no->getChave() << " ";
-        preOrdem(no->getEsq());
-        preOrdem(no->getDir());
+void ArvoreAVL::percorrerPreOrdem(NoAVL *no) {
+    //Se o no for NULL
+    if (no == NULL) {
+        return; //Retorna
     }
+
+    cout << no->getChave() << " "; //Imprime a chave do no
+    percorrerPreOrdem(no->getEsq()); //Percorre a subarvore esquerda
+    percorrerPreOrdem(no->getDir()); //Percorre a subarvore direita
 }
 
-//Montar em ordem
-void ArvoreAVL::emOrdem(NoAVL *no) {
-    if (no != NULL) {
-        emOrdem(no->getEsq()); //Montar em ordem a subarvore esquerda
-        cout << no->getChave() << " "; //Imprimir a chave do no
-        emOrdem(no->getDir()); //Montar em ordem a subarvore direita
+void ArvoreAVL::percorrerInOrdem(NoAVL *no) {
+    //Se o no for NULL
+    if (no == NULL) {
+        return; //Retorna
     }
+
+    percorrerInOrdem(no->getEsq()); //Percorre a subarvore esquerda
+    cout << no->getChave() << " "; //Imprime a chave do no
+    percorrerInOrdem(no->getDir()); //Percorre a subarvore direita
 }
 
-//Montar em pós-ordem
-void ArvoreAVL::posOrdem(NoAVL *no) {
-    if (no != NULL) {
-        posOrdem(no->getEsq()); //Montar em pós-ordem a subarvore esquerda
-        posOrdem(no->getDir()); //Montar em pós-ordem a subarvore direita
-        cout << no->getChave() << " "; //Imprimir a chave do no
+void ArvoreAVL::percorrerPosOrdem(NoAVL *no) {
+    //Se o no for NULL
+    if (no == NULL) {
+        return; //Retorna
     }
-}
 
-//Limpar
-void ArvoreAVL::limpar(NoAVL *no) {
-    if (no != NULL) {
-        limpar(no->getEsq()); //Limpar a subarvore esquerda
-        limpar(no->getDir()); //Limpar a subarvore direita
-        delete no; //Deletar o no
-    }
+    percorrerPosOrdem(no->getEsq()); //Percorre a subarvore esquerda
+    percorrerPosOrdem(no->getDir()); //Percorre a subarvore direita
+    cout << no->getChave() << " "; //Imprime a chave do no
 }
 
 //Imprimir
 void ArvoreAVL::imprimirAVL() {
-    cout << "Pre-ordem: ";
-    preOrdem(raiz);
+    if(this->raiz == NULL) {
+        cout << "Arvore vazia!" << endl;
+        return;
+    }
+
+    cout << "Percurso em pre-ordem => ";
+    percorrerPreOrdem(this->raiz);
     cout << endl;
 
-    cout << "Em ordem: ";
-    emOrdem(raiz);
+    cout << "Percurso em ordem => ";
+    percorrerInOrdem(this->raiz);
     cout << endl;
 
-    cout << "Pos-ordem: ";
-    posOrdem(raiz);
+    cout << "Percurso em pos-ordem => ";
+    percorrerPosOrdem(this->raiz);
     cout << endl;
 }

@@ -1,2 +1,3 @@
 #Ignorar desenvolvimento
 *.vscode/
+*.exe
