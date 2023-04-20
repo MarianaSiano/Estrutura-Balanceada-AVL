@@ -10,7 +10,7 @@ private:
     NoAVL *raiz; //ponteiro para a raiz da árvore
 
 public:
-    AVL(NoAVL* raiz); //construtor
+    AVL(); //construtor
     ~AVL(); //destrutor
     
     int altura(NoAVL *no); //retorna a altura do nó
@@ -28,4 +28,5 @@ public:
     void emOrdem(NoAVL *no); //imprime a árvore em ordem
     void posOrdem(NoAVL *no); //imprime a árvore em pós-ordem
     void limpar(NoAVL *no); //limpa a árvore
+    void imprimirAVL(); //imprime a árvore
 };
