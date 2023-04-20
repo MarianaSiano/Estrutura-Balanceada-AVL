@@ -7,19 +7,21 @@ using namespace std;
 
 class AVL {
 private:
-    NoAVL *raiz;
+    NoAVL *raiz; //ponteiro para a raiz da árvore
 
-    int altura(NoAVL *no);
-    int fatorBalanceamento(NoAVL *no);
-    NoAVL *rotacaoEsquerda(NoAVL *no);
-    NoAVL *rotacaoDireita(NoAVL *no);
-    NoAVL *rotacaoEsquerdaDireita(NoAVL *no);
-    NoAVL *rotacaoDireitaEsquerda(NoAVL *no);
-    NoAVL *inserir(NoAVL *no, int chave);
-    NoAVL *remover(NoAVL *no, int chave);
-    NoAVL *minimo(NoAVL *no);
-    void preOrdem(NoAVL *no);
-    void emOrdem(NoAVL *no);
-    void posOrdem(NoAVL *no);
-    void limpar(NoAVL *no);
+    int altura(NoAVL *no); //retorna a altura do nó
+    int fatorBalanceamento(NoAVL *no); //retorna o fator de balanceamento do nó
+
+    NoAVL *rotacaoEsquerda(NoAVL *no); //rotaciona o nó para a esquerda
+    NoAVL *rotacaoDireita(NoAVL *no); //rotaciona o nó para a direita
+    NoAVL *rotacaoEsquerdaDireita(NoAVL *no); //rotaciona o nó para a esquerda e depois para a direita
+    NoAVL *rotacaoDireitaEsquerda(NoAVL *no); //rotaciona o nó para a direita e depois para a esquerda
+    NoAVL *inserir(NoAVL *no, int chave); //insere um nó na árvore
+    NoAVL *remover(NoAVL *no, int chave); //remove um nó da árvore
+    NoAVL *minimo(NoAVL *no); //retorna o nó com a menor chave da árvore
+
+    void preOrdem(NoAVL *no); //imprime a árvore em pré-ordem
+    void emOrdem(NoAVL *no); //imprime a árvore em ordem
+    void posOrdem(NoAVL *no); //imprime a árvore em pós-ordem
+    void limpar(NoAVL *no); //limpa a árvore
 };

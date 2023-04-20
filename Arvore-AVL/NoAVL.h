@@ -5,20 +5,20 @@ using namespace std;
 
 class NoAVL {
 private:
-    int chave;
-    int altura;
-    NoAVL *esq;
-    NoAVL *dir;
+    int chave; //chave do nó
+    int altura; //altura do nó
+    NoAVL *esq; //ponteiro para o filho esquerdo
+    NoAVL *dir; //ponteiro para o filho direito
 
 public:
-    NoAVL(int chave);
-    ~NoAVL();
-    int getChave();
-    int getAltura();
-    NoAVL *getEsq();
-    NoAVL *getDir();
-    void setChave(int chave);
-    void setAltura(int altura);
-    void setEsq(NoAVL *esq);
-    void setDir(NoAVL *dir);
+    NoAVL(int chave); //construtor
+    ~NoAVL(); //destrutor
+    int getChave(); //retorna a chave do nó
+    int getAltura(); //retorna a altura do nó
+    NoAVL *getEsq(); //retorna o filho esquerdo
+    NoAVL *getDir(); //retorna o filho direito
+    void setChave(int chave); //altera a chave do nó
+    void setAltura(int altura); //altera a altura do nó
+    void setEsq(NoAVL *esq); //altera o filho esquerdo
+    void setDir(NoAVL *dir); //altera o filho direito
 };
