@@ -1,3 +1,6 @@
+#ifndef ARVOREAVL_H
+#define ARVOREAVL_H
+
 #include <bits/stdc++.h>
 #include <iostream>
 
@@ -6,27 +9,23 @@
 using namespace std;
 
 class ArvoreAVL {
+
 private:
-    NoAVL *raiz; //ponteiro para a raiz da árvore
+    NoAVL *raiz; //Raiz da arvore
+    NoAVL *novoNo(int valor); //Cria um novo no
 
-public:
-    ArvoreAVL(); //construtor
-    ~ArvoreAVL(); //destrutor
+    int altura(NoAVL *no); //Altura da arvore
+    int fatorBalanceamento(NoAVL *no); //Fator de balanceamento
+
+    NoAVL *rotacionarEsquerda(NoAVL *no); //Rotação simples a esquerda
+    NoAVL *rotacionarDireita(NoAVL *no); //Rotação simples a direita
+    NoAVL *rotacionarEsquerdaDireita(NoAVL *no); //Rotação dupla a esquerda-direita
+    NoAVL *rotacionarDireitaEsquerda(NoAVL *no); //Rotação dupla a direita-esquerda
+    NoAVL *inserir(NoAVL *no, int valor); //Insere um no na arvore
+    NoAVL *remover(NoAVL *no, int valor); //Remove um no da arvore
     
-    int altura(NoAVL *no); //retorna a altura do nó
-    int fatorBalanceamento(NoAVL *no); //retorna o fator de balanceamento do nó
-
-    NoAVL *rotacaoEsquerda(NoAVL *no); //rotaciona o nó para a esquerda
-    NoAVL *rotacaoDireita(NoAVL *no); //rotaciona o nó para a direita
-    NoAVL *rotacaoEsquerdaDireita(NoAVL *no); //rotaciona o nó para a esquerda e depois para a direita
-    NoAVL *rotacaoDireitaEsquerda(NoAVL *no); //rotaciona o nó para a direita e depois para a esquerda
-    NoAVL *inserir(NoAVL *no, int chave); //insere um nó na árvore
-    NoAVL *remover(NoAVL *no, int chave); //remove um nó da árvore
-    NoAVL *minimo(NoAVL *no); //retorna o nó com a menor chave da árvore
-
-    void percorrerPreOrdem(NoAVL *no); //imprime a árvore em pré-ordem
-    void percorrerInOrdem(NoAVL *no); //imprime a árvore em ordem
-    void percorrerPosOrdem(NoAVL *no); //imprime a árvore em pós-ordem
-    void limpar(NoAVL *no); //limpa a árvore
-    void imprimirAVL(); //imprime a árvore
+    void imprimir(NoAVL *no);
+    void deletarArvore(NoAVL *no);
 };
+
+#endif // ARVOREAVL_H
