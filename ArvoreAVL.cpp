@@ -215,6 +215,10 @@ NoAVL *ArvoreAVL::minimo(NoAVL *no) {
     return atual;
 }
 
+void ArvoreAVL::limpar(NoAVL* no) {
+    this->raiz = remover(this->raiz, raiz->getChave()); //Raiz recebe a remoção da raiz com a chave
+}
+
 void ArvoreAVL::percorrerPreOrdem(NoAVL *no) {
     //Se o no for NULL
     if (no == NULL) {
